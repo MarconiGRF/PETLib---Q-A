@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="./style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="./css/materialize.min.css" media="screen,projection" />
+  <title>PETLib - Q&A</title>
+</head>
+
+<body class="bkgd">
+
+  <header class="header-css">
+    <div class="div-head">
+      <img class="img-adeq" src="pet-logo.png" alt="Foto de perfil">
+    </div>
+    <div class="div-head up">
+      <h1 class="header-name">PETLib - Q&A</h1>
+    </div>
+  </header>
+
+  <main>
+    <section id="q1" class="question-content">
+      <h5 class="descricoes">EE1 - 2018.2</h5>
+      <p class="sublabel">Enunciado:</p>
+      <h3 class="enunciados">"Determine, usando as identidades entre conjuntos, se a seguinte igualdade é verdadeira.
+        Identifique o
+        uso das leis distributivas e associativas."</h3>
+      <h4>$$ B' \cup (A \cap (B \cup A')) = A \cup B' $$</h4>
+      <button class="button-init" onclick="showAnsw(q1)">Resposta</button>
+      <p class="reviwed">Resposta revisada pelo monitor: Aline Gouveia</p>
+    </section>
+    <section id="q2" class="question-content">
+      <h5 class="descricoes">EE1 - 2018.1</h5>
+      <p class="sublabel">Enunciado:</p>
+      <h3 class="enunciados">"Seja <b>n</b> um inteiro positivo. Mostre por argumento combinatório que"</h3>
+      <h3>$$ \binom{2n}{n+1} + \binom{2n}{n} = {\binom{2n+2}{n+1}\over 2} $$</h3>
+      <button class="button-unavailable">Sem resposta no momento.</button>
+      <p class="sublabel-send">Contribua com a resposta! <a href="#!" onclick="sendAnsw()">Enviar</a></p>
+    </section>
+    <section id="q3" class="question-content">
+        <h5 class="descricoes">EE1 - 2018.1</h5>
+        <p class="sublabel">Enunciado:</p>
+        <h3 class="enunciados">"Calcule a seguinte fórmula:"</h3>
+        <h3>$$ Baskhara $$</h3>
+        <button class="button-init">Resposta.</button>
+        <p class="unreviewed">Resposta ainda não revisada pelos monitores.</p>
+      </section>
+  </main>
+
+  <footer>
+    <div>
+      <button id="btn_back" class="button-secondary left" onclick="goBack()">Voltar</button>
+    </div>
+    <div class="tabber">
+      <ul class="pagination">
+        <li id="tab1" class="waves-effect active"><a href="#" onclick="changeQuestion(1)">1</a></li>
+        <li id="tab2" class="waves-effect"><a href="#" onclick="changeQuestion(2)">2</a></li>
+        <li id="tab3" class="waves-effect"><a href="#" onclick="changeQuestion(3)">3</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+    const electron = require('electron');
+    const { remote } = require('electron');
+    const log = require('electron-log');
+    const readline = require('readline');
+    const path = require('path');
+    const {dialog} = require('electron').remote;
+    const BrowserWindow = electron.remote.BrowserWindow;
+
+    
+    function goBack() {
+      document.getElementById("btn_back");
+      remote.getCurrentWindow().loadURL("file://G:/Documentos_HD/Electron Apps/PETLib - Q&A/aluno.html");
+    }
+
+    function changeQuestion(number) {
+      switch (number) {
+        case 1:
+          document.getElementById("q3").style.display = "none";
+          document.getElementById("q2").style.display = "none";
+          document.getElementById("q1").style.display = "inline";
+          document.getElementById("tab1").className += " active"
+          document.getElementById("tab2").className = " inactive"
+          document.getElementById("tab3").className = " inactive"
+          break;
+        case 2:
+          document.getElementById("q3").style.display = "none";
+          document.getElementById("q1").style.display = "none";
+          document.getElementById("q2").style.display = "inline";
+          document.getElementById("tab2").className += " active"
+          document.getElementById("tab1").className = " inactive"
+          document.getElementById("tab3").className = " inactive"
+          break;
+        case 3:
+          document.getElementById("q3").style.display = "inline";
+          document.getElementById("q1").style.display = "none";
+          document.getElementById("q2").style.display = "none";
+          document.getElementById("tab1").className = " inactive"
+          document.getElementById("tab2").className = " inactive"
+          document.getElementById("tab3").className += " active"
+          break;
+      }
+    }
+
+    function showAnsw(question) {
+      const modalPath = path.join('file://', 'G:/Documentos_HD/Electron Apps/PETLib - Q&A/answrs/', 'answ1.html')
+      let win = new BrowserWindow({ width: 1280, height: 600 })
+      win.setMenuBarVisibility(false);
+      win.on('close', function () { win = null })
+      win.loadURL(modalPath)
+      win.show()
+    }
+
+    function sendAnsw() {
+      dialog.showOpenDialog((fileNames) => {
+        // fileNames is an array that contains all the selected
+        if (fileNames === undefined) {
+          console.log("No file selected");
+          return;
+        }
+
+        fs.readFile(filepath, 'utf-8', (err, data) => {
+          if (err) {
+            alert("An error ocurred reading the file :" + err.message);
+            return;
+          }
+
+          // Change how to handle the file content
+          console.log("The file content is : " + data);
+        });
+      });
+    }
+
+  </script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+</body>
+
+</html>

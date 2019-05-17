@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <link href="./style.css" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="./css/materialize.min.css" media="screen,projection" />
   <title>PETLib - Q&A</title>
 </head>
 
-<body>
+<body class="bkgd">
 
   <header class="header-css">
     <div class="div-head">
@@ -20,16 +21,16 @@
   </header>
 
   <main>
-    <section class="main-content">
-      <h1 class="sublabel">O melhor banco de questões, parte do PETLib!</h1>
-      <div>
-        <button id="btn_aluno" class="button-init" onclick="logAluno()">Sou aluno</button>
-      </div>
-      <div>
-        <button id="btn_monitor" class="button-init" onclick="logMonitor()">Sou monitor</button>
-      </div>
+    <section class="main-content-aluno">
+        <p class="sublabel">Ainda não há material para essa disciplina aqui! <br><br>:(</p>
     </section>
   </main>
+
+  <footer>
+    <div>
+      <button id="btn_back" class="button-secondary left" onclick="goBack()">Voltar</button>
+    </div>
+  </footer>
 
   <script>
     // You can also require other files to run in this process
@@ -43,20 +44,14 @@
     const BrowserWindow = electron.remote.BrowserWindow
 
 
-    
-    function logMonitor() {
-      document.getElementById("btn_monitor");
+    document.getElementById("btn_back");
 
-    }
-    
-    
-    function logAluno() {
-      document.getElementById("btn_aluno");
-      remote.getCurrentWindow().loadURL('file://G:/Documentos_HD/Electron Apps/PETLib - Q&A/aluno.html');
+    function goBack() {
+      remote.getCurrentWindow().loadURL("file://G:/Documentos_HD/Electron Apps/PETLib - Q&A/aluno.html");
     }
 
   </script>
-  <script type="text/javascript" src="./js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 
 </html>

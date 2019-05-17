@@ -1,6 +1,6 @@
 # PETLib - Q&A
 
-Este projeto foi baseado no electron-quick-start, agradeÃ§o a todos os contribuidores envolvidos.
+Este projeto foi baseado no electron-quick-start, agradeço a todos os contribuidores envolvidos.
 
 ## Como buildar:
 
