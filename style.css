@@ -50,6 +50,21 @@ h2{
     align-content: left;
 }
 
+.img-ade2{
+    position: relative;
+    height: 60%;
+    margin-left: 1%;
+    width: 15%;
+    border-radius: 50%;
+    align-content: left;
+}
+
+.img-sub{
+    position: relative;
+    width: 100%;
+    align-content: left;
+}
+
 .div-head{
     width: 40%;
     float: left;
@@ -90,6 +105,15 @@ h2{
     color: #ff5722;
 }
 
+.sublabel-2{
+    line-height: 1;
+    flex-wrap: wrap;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff5722;
+}
+
 .sublabel-send{
     line-height: 1;
     flex-wrap: wrap;
@@ -97,6 +121,15 @@ h2{
     font-size: 18px;
     font-weight: bold;
     color: #ff5722;
+}
+
+.sublabel-contrib{
+    line-height: 1;
+    flex-wrap: wrap;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: light-blue;
 }
 
 .unreviewed{
@@ -142,6 +175,15 @@ h2{
     vertical-align: middle;
 }
 
+.main-content-mon{
+    position: fixed;
+    top: 30%;
+    margin-left: 11em;
+    text-align: center;
+    vertical-align: middle;
+    align-content: center;
+}
+
 #disc_1, #disc_2, #disc_3, #disc_4, #disc_5, #btn_next, #q2, #q3{
     display: none;
 }
@@ -149,7 +191,7 @@ h2{
 .main-content-aluno{
     float: left;
     margin-top: 12em;
-    max-width: 50%;
+    max-width: 100%;
     margin-left: 4%;
     margin-right: 4%;
     align-content: left;
@@ -196,6 +238,52 @@ h2{
     cursor: pointer;
 }
 
+.button-ok{
+    display: inline;
+    background-color: rgb(5, 187, 5);
+    border: none;
+    color: white;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    padding: 15px 35px;
+    margin-top: 8%;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.m-left{
+    margin-left: 11em;
+}
+
+.button-notok{
+    display: inline;
+    background-color: red;
+    border: none;
+    color: white;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    padding: 15px 35px;
+    margin-top: 8%;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.button-glogin{
+    display: inline-block;
+    background-color: #4285F4;
+    border: none;
+    color: white;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 18px;
+    padding: 15px 35px;
+    margin-top: 8%;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
 .button-unavailable{
     display: inline-block;
     background-color: gray;
@@ -221,6 +309,22 @@ h2{
     padding: 15px 25px;
     margin-bottom: 1%;
     text-decoration: underline;
+    position: fixed;
+    bottom: 0;
+}
+
+.bot{
+    display: inline-block;
+    margin-top: 40%;
+    margin-left: 4%;
+    position: fixed;
+    bottom: 0;
+}
+
+.bot{
+    display: inline-block;
+    margin-top: 49%;
+    margin-left: 4%;
     position: fixed;
     bottom: 0;
 }

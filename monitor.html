@@ -6,7 +6,7 @@
   <link href="./style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="./css/materialize.min.css" media="screen,projection" />
-  <title>PETLib - Q&A</title>
+  <title>QA - Monitores</title>
 </head>
 
 <body class="bkgd">
@@ -16,16 +16,20 @@
       <img class="img-adeq" src="pet-logo.png" alt="Foto de perfil">
     </div>
     <div class="div-head up">
-      <h1 class="header-name">PETLib - Q&A</h1>
+      <h1 class="header-name">PETLib - QA</h1>
     </div>
   </header>
 
   <main>
-    <section class="main-content-aluno">
-        <p class="sublabel">Ainda não há material para essa disciplina aqui! <br><br>:(</p>
-        <p class="sublabel-send"><a class="sublabel-contrib" href="#!" onClick="openLib()"><br>Contribua </a>enviando material PETLib</p>
+    <section class="main-content-mon">
+        <h1 class="sublabel">Faça login para continuar.</h1>
+      <div>
+          <button id="btn_mon_login" class="button-init" onclick="logMonitor()">Login</button>
+      </div>
     </section>
   </main>
+
+
 
   <footer>
     <div>
@@ -37,24 +41,29 @@
     // You can also require other files to run in this process
     require('./renderer.js')
     const electron = require('electron');
-    const shell = require('electron').shell;
     const { remote } = require('electron');
     const log = require('electron-log');
     const readline = require('readline');
     const path = require('path');
     const { google } = require('googleapis');
     const BrowserWindow = electron.remote.BrowserWindow
-
-
+    
+    
     document.getElementById("btn_back");
-
-    function goBack() {
-      remote.getCurrentWindow().loadURL("file://G:/Documentos_HD/Electron Apps/PETLib - Q&A/aluno.html");
+    
+    function goBack(){
+      remote.getCurrentWindow().loadURL("file://G:/Documentos_HD/Electron Apps/PETLib - Q&A/index.html");
+    }
+    
+    function logMonitor(){
+      remote.getCurrentWindow().loadURL("file://G:/Documentos_HD/Electron Apps/PETLib - Q&A/monitor_logado.html");
     }
 
-    function openLib(){
-      shell.openItem('http://pet.cin.ufpe.br/lib')
-    }
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('select');
+      var options = document.querySelectorAll('option');
+      var instances = M.FormSelect.init(elems, options);
+    });
 
   </script>
   <script type="text/javascript" src="js/materialize.min.js"></script>

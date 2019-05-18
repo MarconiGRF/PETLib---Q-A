@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="./style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./css/materialize.min.css" media="screen,projection" />
+    <title>QA - Monitores</title>
+</head>
+
+<body class="bkgd">
+
+    <header class="header-css">
+        <div class="div-head">
+            <img class="img-adeq" src="pet-logo.png" alt="Foto de perfil">
+        </div>
+        <div class="div-head up">
+            <h1 class="header-name">PETLib - QA</h1>
+        </div>
+    </header>
+
+    <main>
+        <section id="semester" class="main-content-aluno">
+            <h1 class="sublabel">Submissão 1:</h1>
+            <h3 class="enunciados">"Determine, usando as identidades entre conjuntos, se a seguinte igualdade é verdadeira.
+                    Identifique o
+                    uso das leis distributivas e associativas."</h3>
+                  <h4>$$ B' \cup (A \cap (B \cup A')) = A \cup B' $$</h4></h3>
+            <img src="answrs/answ1.jpeg" class="img-sub">
+            <p class="descricoes">EE1 - 2018.1</p>
+            <form action="#" class="m-left">
+                <div>
+                    <button id="btn_aluno" class="button-ok" onclick="logAluno()">Aprovar</button>
+                    <button id="btn_monitor" class="button-notok" onclick="logMonitor()">Recusar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+
+
+    <footer>
+        <div>
+            <button id="btn_back" class="button-secondary left" onclick="goBack()">Voltar</button>
+        </div>
+        <div>
+            <button id="btn_next" class="button-secondary right" onclick="goNext()">Próximo</button>
+        </div>
+    </footer>
+
+    <script>
+        // You can also require other files to run in this process
+        require('./renderer.js')
+        const electron = require('electron');
+        const { remote } = require('electron');
+        const log = require('electron-log');
+        const readline = require('readline');
+        const path = require('path');
+        const { google } = require('googleapis');
+        const BrowserWindow = electron.remote.BrowserWindow
+
+
+        document.getElementById("btn_back");
+
+        function goBack() {
+            remote.getCurrentWindow().loadURL("file://G:/Documentos_HD/Electron Apps/PETLib - Q&A/index.html");
+        }
+
+        function goNext() {
+            let path = localStorage.getItem("path");
+            remote.getCurrentWindow().loadURL(path);
+        }
+
+        function showDisc() {
+            localStorage.setItem("path", "file://G:/Documentos_HD/Electron Apps/PETLib - Q&A/avaliacao.html");
+            document.getElementById("btn_next").style.display = "inline";
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var options = document.querySelectorAll('option');
+            var instances = M.FormSelect.init(elems, options);
+        });
+
+    </script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+</body>
+
+</html>
